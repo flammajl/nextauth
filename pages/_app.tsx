@@ -1,7 +1,12 @@
-import { AppProps } from "next/app";
+import { AppProps } from 'next/app';
+import { AuthProvider } from '../contexts/AuthContext';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  return <Component {...pageProps} />;
+  return (
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  );
 }
 
 export default MyApp;
